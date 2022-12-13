@@ -33,7 +33,7 @@ def cleanUp():
     pygame.quit()
     quit()
 
-DEBUG = True
+DEBUG = False
 name = "mapgen: "
 loadedImages = []
 
@@ -68,10 +68,10 @@ def getSnippet(currentSnippet):
     else:
         printd("getting data...")
         while char != ' ' and char != '\n' and char != ';':
-            print(char, end='')
+            if DEBUG: print(char, end='')
             curString = curString+char
             char = config.read(1)
-        print("")
+        printd("")
 
     snippet = curString
     return currentSnippet, snippet
@@ -199,7 +199,7 @@ printd("Entering main loop")
 for tok in tokens:
     generateThumbnail(tok)
     saveThumbnail("output/Map"+tok[0]+"P.png")
-    printd("Saved thumbnail "+"output/Map"+tok[0]+"P.png")
+    print(name+"Saved thumbnail "+"output/Map"+tok[0]+"P.png")
 
 cleanUp()
 
