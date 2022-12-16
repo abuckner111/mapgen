@@ -184,7 +184,7 @@ def drawImage(path):
     return 0
 
 def generateThumbnail(token):
-    drawImage("resources/Maps/Map"+token[0]+"P.png")
+    drawImage("resources/Maps/MAP"+token[0]+"P.png")
     drawImage("resources/Diff/difficulty"+token[1]+".png")
     drawImage("resources/Laps/laps"+token[2]+".png")
 
@@ -198,8 +198,8 @@ tokens = readConfig()
 printd("Entering main loop")
 for tok in tokens:
     generateThumbnail(tok)
-    saveThumbnail("output/Map"+tok[0]+"P.png")
-    print(name+"Saved thumbnail "+"output/Map"+tok[0]+"P.png")
+    saveThumbnail("output/MAP"+tok[0]+"P.png")
+    print(name+"Saved thumbnail "+"output/MAP"+tok[0]+"P.png")
 
 cleanUp()
 
