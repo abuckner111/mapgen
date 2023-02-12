@@ -1,4 +1,5 @@
 import pygame
+import os.path
 
 #Start up pygame modules
 pygame.init()
@@ -159,7 +160,6 @@ def readConfig():
 
     return tokens
 
-#NEEDS error detection!
 def findImage(path):
     index = 0
     global loadedImages
@@ -167,8 +167,13 @@ def findImage(path):
         if path == img:
             return index
         index += 1
+
+
+    if not os.path.exists(path):
+        return -1
+
     loadedImages.append(pygame.image.load(r''+path))
-    #add error detection and return -1 when image fails to load
+
     return index
 
 def drawImage(path):
