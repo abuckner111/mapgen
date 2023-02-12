@@ -1,1 +1,2 @@
-python mapgen.py
+@echo off
+python mapgen.py > output.log
